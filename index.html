@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Top 10 Places I want to visit</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    </head>
+    <style>
+        #map {width: 1600px; height: 700px}
+    </style>
+
+    <body>
+        <div id="map"></div>
+    </body>
+        <script>
+        var map_center = [10.3392, 123.8537];
+        var mapOptions = {
+        center: map_center,
+        zoom: 5.5
+        }
+            var map = L.map('map', mapOptions);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 12,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Places
+        seoul_latlong = [37.5662, 126.9765];
+        seoul_marker = L.marker(seoul_latlong).addTo(map);
+
+        tokyo_latlong = [35.422, 139.790];
+        tokyo_marker = L.marker(tokyo_latlong).addTo(map);
+
+        shibuya_latlong = [35.6581, 139.701742];
+        shibuya_circle = L.circle(shibuya_latlong, {radius: 15000, color: 'green'}).addTo(map);
+
+        han_river_latlong = [37.5835, 126.8262];
+        han_river_circle = L.circle(han_river_latlong, {radius: 15000, color: 'green'}).addTo(map);
+
+        fuji_latlong = [35.1596, 138.6756]; 
+        fuji_marker = L.marker(fuji_latlong).addTo(map);
+
+        itaewon_latlong = [37.5339, 126.9940]; 
+        itaewon_marker = L.marker(itaewon_latlong).addTo(map);
+
+        palawan_latlong = [9.816, 118.691];
+        palawan_circle = L.circle(palawan_latlong, {radius: 15000, color: 'green'}).addTo(map);
+
+        boracay_latlong = [11.9472, 121.9388];
+        boracay_circle = L.circle(boracay_latlong, {radius: 15000, color: 'green'}).addTo(map);
+
+        barcelona_latlong = [41.366, 2.153]; 
+        barcelona_marker = L.marker(barcelona_latlong).addTo(map);
+
+        kyoto_latlong = [35.0162, 135.7553]; 
+        kyoto_marker = L.marker(kyoto_latlong).addTo(map);
+
+        var polyline_latlngs = [
+            [[42.0537, 126.1239],
+             [41.7932, 126.1237],
+             [42.0537, 126.1239],
+             [41.7956, 126.2466],
+             [41.7956, 126.2466],
+             [42.0554, 126.2480]
+            ]
+        ];
+        polyline = L.polyline(polyline_latlngs, {color: 'red'}).addTo(map);
+    </script>
+</html>
